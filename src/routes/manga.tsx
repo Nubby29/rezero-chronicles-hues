@@ -48,6 +48,14 @@ function MangaPage() {
                 {m.artist} · {m.chapters}
               </p>
               <p className="mt-4 leading-relaxed text-foreground/85">{m.note}</p>
+              <a
+                href={MANGA_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-block text-xs text-primary underline-offset-4 hover:underline"
+              >
+                Official English edition · Yen Press →
+              </a>
             </Panel>
           ))}
         </div>
