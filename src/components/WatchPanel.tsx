@@ -2,7 +2,7 @@ import { useState } from "react";
 import type { SourceLink } from "@/lib/rezero-data";
 
 interface WatchPanelProps {
-  trailerId?: string;
+  trailerId?: string | undefined;
   links: SourceLink[];
   title: string;
 }
