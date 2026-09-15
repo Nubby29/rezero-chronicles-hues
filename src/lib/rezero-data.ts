@@ -31,6 +31,10 @@ export const animeEntries: AnimeEntry[] = [
     synopsis:
       "Natsuki Subaru is pulled out of a convenience-store night and into a kingdom of dragons, spirits and witches. Death is not an ending for him — it is a checkpoint, and the price of every loop is paid in memory and grief.",
     watchNote: "Start here. The Director's Cut recaps Arc 1–2 in 13 hour-long episodes.",
+    trailerId: "65BiDF9YdGg",
+    links: [
+      { label: "Watch on Crunchyroll", url: "https://www.crunchyroll.com/series/GRGG9798R", free: true },
+    ],
   },
   {
     key: "season2",
@@ -42,6 +46,10 @@ export const animeEntries: AnimeEntry[] = [
     synopsis:
       "Trapped inside a barrier-bound Sanctuary, Subaru is forced to negotiate with Echidna, the Witch of Greed, while Emilia faces trials built from her own buried past and the mansion burns behind him.",
     watchNote: "Watch Memory Snow and Frozen Bond before Season 2.",
+    trailerId: "LjOPj-wdHx4",
+    links: [
+      { label: "Watch on Crunchyroll", url: "https://www.crunchyroll.com/series/GRGG9798R", free: true },
+    ],
   },
   {
     key: "season3",
