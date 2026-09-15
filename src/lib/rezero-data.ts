@@ -156,6 +156,17 @@ export const novelArcs: NovelEntry[] = [
   },
 ];
 
+/** The original web serial, published free in Japanese. */
+export const WEB_NOVEL_URL = "https://ncode.syosetu.com/n2267be/";
+/** Community English translation of the free web novel. */
+export const WEB_NOVEL_EN_URL = "https://witchculttranslation.com/";
+/** Official English light novel publisher. */
+export const LIGHT_NOVEL_URL =
+  "https://yenpress.com/series/rezero-starting-life-in-another-world-light-novel";
+/** Official English manga publisher. */
+export const MANGA_URL =
+  "https://yenpress.com/series/rezero-starting-life-in-another-world-manga";
+
 export interface MangaEntry {
   title: string;
   chapters: string;
