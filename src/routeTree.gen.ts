@@ -10,33 +10,63 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AnimeRouteImport } from './routes/anime'
+import { Route as MangaRouteImport } from './routes/manga'
+import { Route as NovelsRouteImport } from './routes/novels'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AnimeRoute = AnimeRouteImport.update({
+  id: '/anime',
+  path: '/anime',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MangaRoute = MangaRouteImport.update({
+  id: '/manga',
+  path: '/manga',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NovelsRoute = NovelsRouteImport.update({
+  id: '/novels',
+  path: '/novels',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/anime': typeof AnimeRoute
+  '/manga': typeof MangaRoute
+  '/novels': typeof NovelsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/anime': typeof AnimeRoute
+  '/manga': typeof MangaRoute
+  '/novels': typeof NovelsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/anime': typeof AnimeRoute
+  '/manga': typeof MangaRoute
+  '/novels': typeof NovelsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/anime' | '/manga' | '/novels'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/anime' | '/manga' | '/novels'
+  id: '__root__' | '/' | '/anime' | '/manga' | '/novels'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AnimeRoute: typeof AnimeRoute
+  MangaRoute: typeof MangaRoute
+  NovelsRoute: typeof NovelsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +78,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/anime': {
+      id: '/anime'
+      path: '/anime'
+      fullPath: '/anime'
+      preLoaderRoute: typeof AnimeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/manga': {
+      id: '/manga'
+      path: '/manga'
+      fullPath: '/manga'
+      preLoaderRoute: typeof MangaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/novels': {
+      id: '/novels'
+      path: '/novels'
+      fullPath: '/novels'
+      preLoaderRoute: typeof NovelsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AnimeRoute: AnimeRoute,
+  MangaRoute: MangaRoute,
+  NovelsRoute: NovelsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
