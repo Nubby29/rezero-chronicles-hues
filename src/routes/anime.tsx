@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Atmosphere } from "@/components/Atmosphere";
+import { WatchPanel } from "@/components/WatchPanel";
 import { PageHeader, Panel, SectionTitle } from "@/components/ui/section";
 import { animeEntries } from "@/lib/rezero-data";
 import { useSeasonTheme } from "@/lib/theme-context";
@@ -89,6 +90,12 @@ function AnimePage() {
                 <p className="mt-4 text-sm italic text-muted-foreground">
                   {entry.watchNote}
                 </p>
+
+                <WatchPanel
+                  trailerId={entry.trailerId}
+                  links={entry.links}
+                  title={entry.title}
+                />
               </Panel>
             );
           })}
