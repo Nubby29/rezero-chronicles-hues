@@ -13,6 +13,9 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AnimeRouteImport } from './routes/anime'
 import { Route as MangaRouteImport } from './routes/manga'
 import { Route as NovelsRouteImport } from './routes/novels'
+import { Route as WikiRouteImport } from './routes/wiki'
+import { Route as WikiIndexRouteImport } from './routes/wiki.index'
+import { Route as WikiSlugRouteImport } from './routes/wiki.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,18 +37,38 @@ const NovelsRoute = NovelsRouteImport.update({
   path: '/novels',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WikiRoute = WikiRouteImport.update({
+  id: '/wiki',
+  path: '/wiki',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WikiIndexRoute = WikiIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => WikiRoute,
+} as any)
+const WikiSlugRoute = WikiSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => WikiRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/anime': typeof AnimeRoute
   '/manga': typeof MangaRoute
   '/novels': typeof NovelsRoute
+  '/wiki': typeof WikiRouteWithChildren
+  '/wiki/$slug': typeof WikiSlugRoute
+  '/wiki/': typeof WikiIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/anime': typeof AnimeRoute
   '/manga': typeof MangaRoute
   '/novels': typeof NovelsRoute
+  '/wiki/$slug': typeof WikiSlugRoute
+  '/wiki': typeof WikiIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +76,25 @@ export interface FileRoutesById {
   '/anime': typeof AnimeRoute
   '/manga': typeof MangaRoute
   '/novels': typeof NovelsRoute
+  '/wiki': typeof WikiRouteWithChildren
+  '/wiki/$slug': typeof WikiSlugRoute
+  '/wiki/': typeof WikiIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/anime' | '/manga' | '/novels'
+  fullPaths:
+    '/' | '/anime' | '/manga' | '/novels' | '/wiki' | '/wiki/$slug' | '/wiki/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/anime' | '/manga' | '/novels'
-  id: '__root__' | '/' | '/anime' | '/manga' | '/novels'
+  to: '/' | '/anime' | '/manga' | '/novels' | '/wiki/$slug' | '/wiki'
+  id:
+    | '__root__'
+    | '/'
+    | '/anime'
+    | '/manga'
+    | '/novels'
+    | '/wiki'
+    | '/wiki/$slug'
+    | '/wiki/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +102,7 @@ export interface RootRouteChildren {
   AnimeRoute: typeof AnimeRoute
   MangaRoute: typeof MangaRoute
   NovelsRoute: typeof NovelsRoute
+  WikiRoute: typeof WikiRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -99,14 +135,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NovelsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/wiki': {
+      id: '/wiki'
+      path: '/wiki'
+      fullPath: '/wiki'
+      preLoaderRoute: typeof WikiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wiki/': {
+      id: '/wiki/'
+      path: '/'
+      fullPath: '/wiki/'
+      preLoaderRoute: typeof WikiIndexRouteImport
+      parentRoute: typeof WikiRoute
+    }
+    '/wiki/$slug': {
+      id: '/wiki/$slug'
+      path: '/$slug'
+      fullPath: '/wiki/$slug'
+      preLoaderRoute: typeof WikiSlugRouteImport
+      parentRoute: typeof WikiRoute
+    }
   }
 }
+
+interface WikiRouteChildren {
+  WikiSlugRoute: typeof WikiSlugRoute
+  WikiIndexRoute: typeof WikiIndexRoute
+}
+
+const WikiRouteChildren: WikiRouteChildren = {
+  WikiSlugRoute: WikiSlugRoute,
+  WikiIndexRoute: WikiIndexRoute,
+}
+
+const WikiRouteWithChildren = WikiRoute._addFileChildren(WikiRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AnimeRoute: AnimeRoute,
   MangaRoute: MangaRoute,
   NovelsRoute: NovelsRoute,
+  WikiRoute: WikiRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

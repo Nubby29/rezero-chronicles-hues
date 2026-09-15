@@ -30,7 +30,7 @@ export function Panel({
   className,
 }: {
   children: ReactNode;
-  className?: string;
+  className?: string | undefined;
 }) {
   return (
     <div
