@@ -5,7 +5,7 @@ export function SiteFooter() {
   const { theme } = useSeasonTheme();
 
   return (
-    <footer className="mt-24 border-t border-border">
+    <footer className="relative z-10 mt-24 border-t border-border bg-background/80">
       <div className="mx-auto grid max-w-6xl gap-8 px-5 py-12 sm:grid-cols-2">
         <div>
           <p className="font-display text-sm tracking-[0.3em] text-foreground">RE:ZERO</p>

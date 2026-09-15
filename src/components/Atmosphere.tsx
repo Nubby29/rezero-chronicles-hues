@@ -5,7 +5,7 @@ export function Atmosphere() {
   const { themeKey } = useSeasonTheme();
 
   return (
-    <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+    <div aria-hidden className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
       <div className="halo-glow absolute -top-40 left-1/2 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full" />
       <div className="sigil-glow absolute bottom-[-18rem] right-[-10rem] h-[36rem] w-[36rem] rounded-full" />
       <div className="rune-grid absolute inset-0 opacity-[0.5]" />
