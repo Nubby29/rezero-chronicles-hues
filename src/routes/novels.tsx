@@ -101,6 +101,14 @@ function NovelsPage() {
                 </div>
                 <p className="mt-3 leading-relaxed text-foreground/85">{arc.summary}</p>
                 <p className="mt-2 text-sm text-muted-foreground">{arc.webNote}</p>
+                <a
+                  href={WEB_NOVEL_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-block text-xs text-primary underline-offset-4 hover:underline"
+                >
+                  Read this arc free in the web novel →
+                </a>
               </Panel>
             ))}
           </div>

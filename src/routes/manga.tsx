@@ -3,7 +3,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Atmosphere } from "@/components/Atmosphere";
 import { PageHeader, Panel } from "@/components/ui/section";
-import { mangaEntries } from "@/lib/rezero-data";
+import { mangaEntries, MANGA_URL } from "@/lib/rezero-data";
 
 export const Route = createFileRoute("/manga")({
   head: () => ({
