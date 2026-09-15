@@ -90,6 +90,9 @@ export const animeEntries: AnimeEntry[] = [
     synopsis:
       "Emilia's story before Subaru: a half-elf girl waking in a frozen forest, and the contract with a cat-shaped spirit named Puck that gave her a name to hold on to.",
     watchNote: "Best watched right before Season 2.",
+    links: [
+      { label: "Watch on Crunchyroll", url: "https://www.crunchyroll.com/series/GRGG9798R", free: true },
+    ],
   },
 ];
 
