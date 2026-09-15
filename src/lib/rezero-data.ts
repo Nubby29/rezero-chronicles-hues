@@ -1,5 +1,11 @@
 import type { ThemeKey } from "./theme-data";
 
+export interface SourceLink {
+  label: string;
+  url: string;
+  free?: boolean;
+}
+
 export interface AnimeEntry {
   key: ThemeKey;
   title: string;
@@ -9,6 +15,9 @@ export interface AnimeEntry {
   arcs: string[];
   synopsis: string;
   watchNote: string;
+  /** Official YouTube video ID (Crunchyroll / Kadokawa), embedded lazily. */
+  trailerId?: string;
+  links: SourceLink[];
 }
 
 export const animeEntries: AnimeEntry[] = [
@@ -22,6 +31,10 @@ export const animeEntries: AnimeEntry[] = [
     synopsis:
       "Natsuki Subaru is pulled out of a convenience-store night and into a kingdom of dragons, spirits and witches. Death is not an ending for him — it is a checkpoint, and the price of every loop is paid in memory and grief.",
     watchNote: "Start here. The Director's Cut recaps Arc 1–2 in 13 hour-long episodes.",
+    trailerId: "65BiDF9YdGg",
+    links: [
+      { label: "Watch on Crunchyroll", url: "https://www.crunchyroll.com/series/GRGG9798R", free: true },
+    ],
   },
   {
     key: "season2",
@@ -33,6 +46,10 @@ export const animeEntries: AnimeEntry[] = [
     synopsis:
       "Trapped inside a barrier-bound Sanctuary, Subaru is forced to negotiate with Echidna, the Witch of Greed, while Emilia faces trials built from her own buried past and the mansion burns behind him.",
     watchNote: "Watch Memory Snow and Frozen Bond before Season 2.",
+    trailerId: "LjOPj-wdHx4",
+    links: [
+      { label: "Watch on Crunchyroll", url: "https://www.crunchyroll.com/series/GRGG9798R", free: true },
+    ],
   },
   {
     key: "season3",
@@ -44,6 +61,10 @@ export const animeEntries: AnimeEntry[] = [
     synopsis:
       "The water city of Priestella becomes a battlefield as three Sin Archbishops converge on it at once. Every camp of the Royal Selection is dragged into the same night, and Subaru has to fight as a strategist rather than a survivor.",
     watchNote: "The largest ensemble battle in the series so far.",
+    trailerId: "lXs3yIc_2CU",
+    links: [
+      { label: "Watch on Crunchyroll", url: "https://www.crunchyroll.com/series/GRGG9798R", free: true },
+    ],
   },
   {
     key: "memory-snow",
@@ -55,6 +76,9 @@ export const animeEntries: AnimeEntry[] = [
     synopsis:
       "A warm, comedic breather in a snowbound village: a botched investigation, a village of suspicious children, and a night of quiet gratitude between Subaru and the people he saved.",
     watchNote: "Optional in plot terms, essential in tone.",
+    links: [
+      { label: "Watch on Crunchyroll", url: "https://www.crunchyroll.com/series/GRGG9798R", free: true },
+    ],
   },
   {
     key: "frozen-bond",
@@ -66,6 +90,9 @@ export const animeEntries: AnimeEntry[] = [
     synopsis:
       "Emilia's story before Subaru: a half-elf girl waking in a frozen forest, and the contract with a cat-shaped spirit named Puck that gave her a name to hold on to.",
     watchNote: "Best watched right before Season 2.",
+    links: [
+      { label: "Watch on Crunchyroll", url: "https://www.crunchyroll.com/series/GRGG9798R", free: true },
+    ],
   },
 ];
 
@@ -128,6 +155,17 @@ export const novelArcs: NovelEntry[] = [
     webNote: "Ongoing in the web novel.",
   },
 ];
+
+/** The original web serial, published free in Japanese. */
+export const WEB_NOVEL_URL = "https://ncode.syosetu.com/n2267be/";
+/** Community English translation of the free web novel. */
+export const WEB_NOVEL_EN_URL = "https://witchculttranslation.com/";
+/** Official English light novel publisher. */
+export const LIGHT_NOVEL_URL =
+  "https://yenpress.com/series/rezero-starting-life-in-another-world-light-novel";
+/** Official English manga publisher. */
+export const MANGA_URL =
+  "https://yenpress.com/series/rezero-starting-life-in-another-world-manga";
 
 export interface MangaEntry {
   title: string;

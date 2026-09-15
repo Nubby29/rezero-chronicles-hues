@@ -3,7 +3,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Atmosphere } from "@/components/Atmosphere";
 import { PageHeader, Panel } from "@/components/ui/section";
-import { mangaEntries } from "@/lib/rezero-data";
+import { mangaEntries, MANGA_URL } from "@/lib/rezero-data";
 
 export const Route = createFileRoute("/manga")({
   head: () => ({
@@ -48,6 +48,14 @@ function MangaPage() {
                 {m.artist} · {m.chapters}
               </p>
               <p className="mt-4 leading-relaxed text-foreground/85">{m.note}</p>
+              <a
+                href={MANGA_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-block text-xs text-primary underline-offset-4 hover:underline"
+              >
+                Official English edition · Yen Press →
+              </a>
             </Panel>
           ))}
         </div>

@@ -3,7 +3,12 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Atmosphere } from "@/components/Atmosphere";
 import { PageHeader, Panel, SectionTitle } from "@/components/ui/section";
-import { novelArcs } from "@/lib/rezero-data";
+import {
+  novelArcs,
+  WEB_NOVEL_URL,
+  WEB_NOVEL_EN_URL,
+  LIGHT_NOVEL_URL,
+} from "@/lib/rezero-data";
 
 export const Route = createFileRoute("/novels")({
   head: () => ({
@@ -45,6 +50,14 @@ function NovelsPage() {
               illustrations. This is the version the anime adapts, and the one to buy if
               you want the definitive text.
             </p>
+            <a
+              href={LIGHT_NOVEL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-block rounded-full border border-border px-4 py-1.5 text-xs text-muted-foreground transition-colors hover:border-primary hover:text-foreground"
+            >
+              Official English edition · Yen Press
+            </a>
           </Panel>
           <Panel>
             <SectionTitle>Web novel</SectionTitle>
@@ -53,6 +66,24 @@ function NovelsPage() {
               the only place to read the later arcs — at the cost of spoilers and less
               polished drafts.
             </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <a
+                href={WEB_NOVEL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-primary px-4 py-1.5 text-xs text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+              >
+                Read free · original Japanese
+              </a>
+              <a
+                href={WEB_NOVEL_EN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-border px-4 py-1.5 text-xs text-muted-foreground transition-colors hover:border-primary hover:text-foreground"
+              >
+                Free English translation · community project
+              </a>
+            </div>
           </Panel>
         </div>
 
@@ -70,6 +101,14 @@ function NovelsPage() {
                 </div>
                 <p className="mt-3 leading-relaxed text-foreground/85">{arc.summary}</p>
                 <p className="mt-2 text-sm text-muted-foreground">{arc.webNote}</p>
+                <a
+                  href={WEB_NOVEL_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-block text-xs text-primary underline-offset-4 hover:underline"
+                >
+                  Read this arc free in the web novel →
+                </a>
               </Panel>
             ))}
           </div>
