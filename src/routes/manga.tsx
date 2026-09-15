@@ -30,7 +30,7 @@ function MangaPage() {
     <>
       <Atmosphere />
       <SiteHeader />
-      <main>
+      <main className="relative z-10">
         <PageHeader
           eyebrow="Manga"
           title="Adaptations, arc by arc"

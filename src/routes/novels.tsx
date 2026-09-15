@@ -30,7 +30,7 @@ function NovelsPage() {
     <>
       <Atmosphere />
       <SiteHeader />
-      <main>
+      <main className="relative z-10">
         <PageHeader
           eyebrow="Novels"
           title="The light novel and the web novel"

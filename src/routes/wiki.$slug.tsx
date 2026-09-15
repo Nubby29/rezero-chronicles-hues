@@ -42,7 +42,7 @@ function WikiEntryPage() {
     <>
       <Atmosphere />
       <SiteHeader />
-      <main className="mx-auto max-w-4xl px-5 pb-10 pt-16">
+      <main className="relative z-10 mx-auto max-w-4xl px-5 pb-10 pt-16">
         <Link to="/wiki" className="text-sm text-primary hover:underline">
           ← Back to the wiki
         </Link>
@@ -105,7 +105,7 @@ function EntryNotFound() {
     <>
       <Atmosphere />
       <SiteHeader />
-      <main className="mx-auto max-w-3xl px-5 py-24 text-center">
+      <main className="relative z-10 mx-auto max-w-3xl px-5 py-24 text-center">
         <h1 className="font-display text-3xl text-foreground">No such entry</h1>
         <p className="mt-3 text-muted-foreground">
           That page has been eaten by Gluttony. Try the index instead.

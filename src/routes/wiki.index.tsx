@@ -53,7 +53,7 @@ function WikiIndex() {
     <>
       <Atmosphere />
       <SiteHeader />
-      <main>
+      <main className="relative z-10">
         <PageHeader
           eyebrow="Wiki"
           title="Characters, witches and world lore"

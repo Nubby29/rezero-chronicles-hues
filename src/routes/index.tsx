@@ -39,7 +39,7 @@ function Home() {
       <Atmosphere />
       <SiteHeader />
 
-      <main>
+      <main className="relative z-10">
         <section className="mx-auto max-w-6xl px-5 pb-16 pt-20 sm:pt-28">
           <p className="text-[11px] uppercase tracking-[0.34em] text-primary">
             {theme.kind === "film" ? "Now viewing film" : "Now viewing"} · {theme.years}

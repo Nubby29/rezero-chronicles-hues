@@ -33,7 +33,7 @@ function AnimePage() {
     <>
       <Atmosphere />
       <SiteHeader />
-      <main>
+      <main className="relative z-10">
         <PageHeader
           eyebrow="Anime & films"
           title="Three seasons, two films, one loop"
