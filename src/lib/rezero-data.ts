@@ -61,6 +61,10 @@ export const animeEntries: AnimeEntry[] = [
     synopsis:
       "The water city of Priestella becomes a battlefield as three Sin Archbishops converge on it at once. Every camp of the Royal Selection is dragged into the same night, and Subaru has to fight as a strategist rather than a survivor.",
     watchNote: "The largest ensemble battle in the series so far.",
+    trailerId: "lXs3yIc_2CU",
+    links: [
+      { label: "Watch on Crunchyroll", url: "https://www.crunchyroll.com/series/GRGG9798R", free: true },
+    ],
   },
   {
     key: "memory-snow",
@@ -72,6 +76,9 @@ export const animeEntries: AnimeEntry[] = [
     synopsis:
       "A warm, comedic breather in a snowbound village: a botched investigation, a village of suspicious children, and a night of quiet gratitude between Subaru and the people he saved.",
     watchNote: "Optional in plot terms, essential in tone.",
+    links: [
+      { label: "Watch on Crunchyroll", url: "https://www.crunchyroll.com/series/GRGG9798R", free: true },
+    ],
   },
   {
     key: "frozen-bond",
