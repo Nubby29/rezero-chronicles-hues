@@ -1,5 +1,11 @@
 import type { ThemeKey } from "./theme-data";
 
+export interface SourceLink {
+  label: string;
+  url: string;
+  free?: boolean;
+}
+
 export interface AnimeEntry {
   key: ThemeKey;
   title: string;
@@ -9,6 +15,9 @@ export interface AnimeEntry {
   arcs: string[];
   synopsis: string;
   watchNote: string;
+  /** Official YouTube video ID (Crunchyroll / Kadokawa), embedded lazily. */
+  trailerId?: string;
+  links: SourceLink[];
 }
 
 export const animeEntries: AnimeEntry[] = [
